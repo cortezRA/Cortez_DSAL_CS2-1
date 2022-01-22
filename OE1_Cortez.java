@@ -50,6 +50,13 @@ public class OE1_Cortez {
                     break;
                 }
                 case 2: {
+                    if (current_size == 0) {
+                        System.out.println();
+                        System.out.println("You currently don't have an array in need to be changed...");
+                        System.out.println("-- You will now be prompted back into the Main Menu --");
+                        break;
+                    }
+
                     System.out.println("Insert an Array Element");
                     System.out.println();
                     System.out.println("Enter array value to be inserted: ");    
@@ -67,12 +74,15 @@ public class OE1_Cortez {
                     }
 
                     System.out.println("How do you want to insert your desired array element? ");
-                    System.out.println("[1] - Replace an array element from its location");
+                    System.out.println("[1] - Replace an array element from its location (only works within position " + current_size + ")");
                     System.out.println("[2] - Shift other array elements to insert array element to desired location");
+                    System.out.println();
+                    System.out.println("Warning! Having the first option while choosing " + added_size + " as the array location");
+                    System.out.println("will create no changes whatsoever to your array");
 
                     int choose_insert;
                     choose_insert = in.nextInt();
-                    
+
                     if (choose_insert == 1) {
                         current_array[position-1] = value;
                     }
@@ -97,6 +107,13 @@ public class OE1_Cortez {
                     break;
                 }
                 case 3: {
+                    if (current_size == 0) {
+                        System.out.println();
+                        System.out.println("You currently don't have an array to be searched...");
+                        System.out.println("-- You will now be prompted back into the Main Menu --");
+                        break;
+                    }
+
                     System.out.println("Search Array List");
                     System.out.println();
                     System.out.println("Enter array value: ");
@@ -114,6 +131,13 @@ public class OE1_Cortez {
                     break;
                 }
                 case 4: {
+                    if (current_size == 0) {
+                        System.out.println();
+                        System.out.println("You currently don't have an array in need to be deleted...");
+                        System.out.println("-- You will now be prompted back into the Main Menu --");
+                        break;
+                    }
+
                     System.out.println("Delete an Array Element");
                     System.out.println();
                     System.out.println("Enter array location to be deleted: ");

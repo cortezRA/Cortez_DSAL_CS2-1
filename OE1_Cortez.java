@@ -29,6 +29,7 @@ public class OE1_Cortez {
             operation = in.nextInt();
             switch (operation) {
                 case 1: {
+                    System.out.println();
                     System.out.println("Create a new Array List");
                     System.out.println();
                     System.out.println("Enter array size: ");
@@ -45,6 +46,7 @@ public class OE1_Cortez {
 
                     current_array = new_array;
                     current_size = size;
+                    System.out.println();
                     System.out.println("Current Array List: " + Arrays.toString(current_array));
                     System.out.println();
                     break;
@@ -57,12 +59,14 @@ public class OE1_Cortez {
                         break;
                     }
 
+                    System.out.println();
                     System.out.println("Insert an Array Element");
                     System.out.println();
                     System.out.println("Enter array value to be inserted: ");    
                     int value, added_size = current_size + 1;
                     value = in.nextInt();
 
+                    System.out.println();
                     System.out.println("Enter array location to insert array element (1 to " + added_size + "):");
                     int position;
                     position = in.nextInt();
@@ -73,6 +77,7 @@ public class OE1_Cortez {
                         System.out.println("You will be returned to Main Menu!");
                     }
 
+                    System.out.println();
                     System.out.println("How do you want to insert your desired array element? ");
                     System.out.println("[1] - Replace an array element from its location (only works within position " + current_size + ")");
                     System.out.println("[2] - Shift other array elements to insert array element to desired location");
@@ -82,6 +87,7 @@ public class OE1_Cortez {
 
                     int choose_insert;
                     choose_insert = in.nextInt();
+                    System.out.println();
 
                     if (choose_insert == 1) {
                         current_array[position-1] = value;
@@ -114,6 +120,7 @@ public class OE1_Cortez {
                         break;
                     }
 
+                    System.out.println();
                     System.out.println("Search Array List");
                     System.out.println();
                     System.out.println("Enter array value: ");
@@ -121,6 +128,7 @@ public class OE1_Cortez {
                     int value;
                     value = in.nextInt();
 
+                    System.out.println();
                     for(int num = 0; num < current_size; num++) {
                         if (current_array[num] == value ) {
                             int new_location = num + 1;
@@ -138,6 +146,7 @@ public class OE1_Cortez {
                         break;
                     }
 
+                    System.out.println();
                     System.out.println("Delete an Array Element");
                     System.out.println();
                     System.out.println("Enter array location to be deleted: ");
@@ -156,12 +165,14 @@ public class OE1_Cortez {
                         current_array[num] = temp_array[num];
                     }
 
+                    System.out.println();
                     System.out.println("Current Array List: " + Arrays.toString(current_array));
                     System.out.println();
 
                     break;
                 }
                 case 0: {
+                    System.out.println();
                     System.out.println("Exit Array Creating Station?");
                     System.out.println("[1] - Yes       [2] - No");
                     

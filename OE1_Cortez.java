@@ -154,17 +154,20 @@ public class OE1_Cortez {
                     int position;
                     position = in.nextInt();
 
-                    for(int num = position-1; num < (current_size-1); num++) {
-                        current_array[num] = current_array[num+1];
-                    }
-
                     int temp_array[] = current_array;
                     current_array = new int[current_size-1];
 
-                    for (int num = 0; num <= position; num++) {
-                        current_array[num] = temp_array[num];
+                    for (int num = 0; num < current_size-1; num++) {
+                        
+                        if (num < position-1) {
+                            current_array[num] = temp_array[num];
+                        }
+                        else if (num >= position-1) {
+                            current_array[num] = temp_array[num+1];
+                        } 
                     }
 
+                    current_size--;
                     System.out.println();
                     System.out.println("Current Array List: " + Arrays.toString(current_array));
                     System.out.println();

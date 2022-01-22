@@ -107,6 +107,7 @@ public class OE1_Cortez {
                         current_array[position-1] = value;
                     }
 
+                    current_size++;
                     System.out.println("Current Array List: " + Arrays.toString(current_array));
                     System.out.println();
 

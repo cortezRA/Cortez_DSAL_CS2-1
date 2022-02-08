@@ -2,57 +2,6 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Prelim_Cortez {
-
-    static void Insert(int[] in_array, int in_value, int in_size, int in_location) {
-        int temp_array[] = in_array;
-        in_array = new int[in_size+1];
-
-        for (int num = 0; num < in_size; num++) {
-            in_array[num] = temp_array[num];
-        }
-        for (int num = in_size-1; num >= in_location-1; num--){
-            in_array[num+1] = in_array[num];
-        }
-
-        in_array[in_location-1] = in_value;
-        in_size++;
-
-        System.out.println("-- INSERTION SUCCESSFUL --");
-        System.out.println("Array Element " + in_value + " has been inserted successfully...");
-        System.out.println();
-        System.out.println("Current Array Values: " + Arrays.toString(in_array));
-    }
-
-    static void Delete(int[] in_array, int in_value, int in_size) {
-        
-        int temp_array[] = in_array;
-        int savenum = 0;
-
-        for (int num = 0; num < in_size; num++) {
-            if (in_value == temp_array[num]) {
-                temp_array[num] = 0;
-                savenum = num;
-                break;
-            }
-        }
-        
-        in_array = new int[in_size-1];
-
-        for (int num = 0; num < savenum; num++) {
-            in_array[num] = temp_array[num];
-        }
-
-        for (int num = savenum; num < in_size-1; num++){
-            in_array[num] = temp_array[num+1];
-        }
-
-        System.out.println("-- DELETION SUCCESSFUL --");
-        System.out.println("Array Element " + in_value + " has been deleted successfully...");
-        System.out.println();
-        System.out.println("Current Array Values: " + Arrays.toString(in_array));
-        System.out.println("-- RETURNING TO MAIN MENU --");
-    }
-
     static void Search(int[] in_array, int in_value) {
 
         int index = in_array.length;
@@ -125,17 +74,57 @@ public class Prelim_Cortez {
                 System.out.println();
                 System.out.println("Enter Position for Insertion (from 1 to " + (size+1) + "): ");
                 location = in.nextInt();
-                Insert(array, value, size, location);
+                
+                int temp_array[] = array;
+                array = new int[size+1];
+        
+                for (int num = 0; num < size; num++) {
+                    array[num] = temp_array[num];
+                }
+                for (int num = size-1; num >= location-1; num--){
+                    array[num+1] = array[num];
+                }
+        
+                array[location-1] = value;
                 size++;
-                exit = 1;
+        
+                System.out.println("-- INSERTION SUCCESSFUL --");
+                System.out.println("Array Element " + value + " has been inserted successfully...");
+                System.out.println();
+                System.out.println("Current Array Values: " + Arrays.toString(array));
             }
             else if (operation == 3) {
                 System.out.println("Enter Value to be Deleted: ");
                 value = in.nextInt();
                 System.out.println();
-                Delete(array, value, size);
+                
+                int temp_array[] = array;
+                int savenum = 0;
+
+                for (int num = 0; num < size; num++) {
+                    if (value == temp_array[num]) {
+                        temp_array[num] = 0;
+                        savenum = num;
+                        break;
+                    }
+                }
+        
+                array = new int[size-1];
+
+                for (int num = 0; num < savenum; num++) {
+                    array[num] = temp_array[num];
+                }
+
+                for (int num = savenum; num < size-1; num++){
+                    array[num] = temp_array[num+1];
+                }
+
                 size--;
-                exit = 1;
+                System.out.println("-- DELETION SUCCESSFUL --");
+                System.out.println("Array Element " + value + " has been deleted successfully...");
+                System.out.println();
+                System.out.println("Current Array Values: " + Arrays.toString(array));
+                System.out.println("-- RETURNING TO MAIN MENU --");
             }
             else if (operation == 4) {
                 exit = 1;

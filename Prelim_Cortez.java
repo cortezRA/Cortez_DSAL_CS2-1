@@ -136,5 +136,3 @@ public class Prelim_Cortez {
         } while (exit == 0);
     }
 }
-
-//Using Insertion or Deletion will automatically exit the program. Haven't mastered using outside functions yet

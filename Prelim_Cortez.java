@@ -99,32 +99,40 @@ public class Prelim_Cortez {
                 System.out.println();
                 
                 int temp_array[] = array;
-                int savenum = 0;
+                int savenum = 0, ctr = 0;
 
                 for (int num = 0; num < size; num++) {
                     if (value == temp_array[num]) {
                         temp_array[num] = 0;
                         savenum = num;
+                        ctr++;
                         break;
                     }
                 }
-        
-                array = new int[size-1];
+                if (ctr > 0) {
+                    array = new int[size-1];
 
-                for (int num = 0; num < savenum; num++) {
-                    array[num] = temp_array[num];
+                    for (int num = 0; num < savenum; num++) {
+                        array[num] = temp_array[num];
+                    }
+                    for (int num = savenum; num < size-1; num++){
+                        array[num] = temp_array[num+1];
+                    }
+
+                    size--;
+                    System.out.println("-- DELETION SUCCESSFUL --");
+                    System.out.println("Array Element " + value + " has been deleted successfully...");
+                    System.out.println();
+                    System.out.println("Current Array Values: " + Arrays.toString(array));
+                    System.out.println("-- RETURNING TO MAIN MENU --");
                 }
-
-                for (int num = savenum; num < size-1; num++){
-                    array[num] = temp_array[num+1];
+                else {
+                    System.out.println("-- DELETION FAILED --");
+                    System.out.println("Array Element " + value + " does not exist in the array");
+                    System.out.println();
+                    System.out.println("Current Array Values: " + Arrays.toString(array));
+                    System.out.println("-- RETURNING TO MAIN MENU --");
                 }
-
-                size--;
-                System.out.println("-- DELETION SUCCESSFUL --");
-                System.out.println("Array Element " + value + " has been deleted successfully...");
-                System.out.println();
-                System.out.println("Current Array Values: " + Arrays.toString(array));
-                System.out.println("-- RETURNING TO MAIN MENU --");
             }
             else if (operation == 4) {
                 exit = 1;

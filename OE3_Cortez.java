@@ -1,3 +1,6 @@
+//https://github.com/cortezRA/Cortez_DSAL_CS2-1.git
+//https://github.com/cortezRA/Cortez_DSAL_CS2-1/blob/0773a86aa75bd5e5368082a5207aecb13b34a376/OE3_Cortez.java
+
 import java.util.Scanner;
 
 public class OE3_Cortez {
@@ -78,7 +81,7 @@ public class OE3_Cortez {
         OE3_Cortez myList = new OE3_Cortez();
 
         int size;
-        String operation;
+        int operation;
         int value = 0;
         int position = 0;
         int exit = 0;
@@ -115,15 +118,15 @@ public class OE3_Cortez {
             System.out.println("[3] - Exit Program\n");
             myList.printNode();
             System.out.println("\n\nWhat would you like to do? ");
-            operation = in.next();
+            operation = in.nextInt();
 
-            if(operation == "1") {
+            if(operation == 1) {
                 System.out.println("Enter integer value to be added on LinkedList: ");
                 value = in.nextInt();
                 myList.addNode(value);
                 size++;
             }
-            else if(operation == "2") {
+            else if(operation == 2) {
                 System.out.println("Enter position of the value to be removed on LinkedList (1 to " + size + "): ");
                 position = in.nextInt();
 
@@ -136,7 +139,7 @@ public class OE3_Cortez {
                     System.out.println("-- RETURNING TO MAIN MENU --");
                 }
             }
-            else if(operation == "3") {
+            else if(operation == 3) {
                 System.out.println("Exit the program? ");
                 System.out.println("\n[1] - Yes");
                 System.out.println("[2] - No\n");

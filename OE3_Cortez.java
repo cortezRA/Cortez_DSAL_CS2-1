@@ -92,19 +92,17 @@ public class OE3_Cortez {
         size = in.nextInt();
 
         for(int num = 0; num < size; num++) {
-            System.out.println("Please enter the ");
-
             if(num+1 == 1) {
-                System.out.print((num+1) + "st integer value of the LinkedList: ");
+                System.out.println("Please enter the " + (num+1) + "st integer value of the LinkedList: ");
             }
             else if(num+1 == 2) {
-                System.out.print((num+1) + "nd integer value of the LinkedList: ");
+                System.out.println("Please enter the " + (num+1) + "nd integer value of the LinkedList: ");
             }
             else if(num+1 == 3) {
-                System.out.print((num+1) + "rd integer value of the LinkedList: ");
+                System.out.println("Please enter the " + (num+1) + "rd integer value of the LinkedList: ");
             }
             else {
-                System.out.print((num+1) + "th integer value of the LinkedList: ");
+                System.out.println("Please enter the " + (num+1) + "th integer value of the LinkedList: ");
             }
             value = in.nextInt();
             myList.addNode(value);

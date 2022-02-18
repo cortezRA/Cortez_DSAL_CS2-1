@@ -12,7 +12,6 @@ public class OE3_Cortez {
             this.data = data;
             this.next = null;
             this.previous = null;
-
         }
     }
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class OE5_Cortez {
 
      // Total number of elements to be sorted
-     private static final int N = 10000;
+     private static final int N = 100;
  
      // Total number of sorting runs
      private static final int NUM = 10;

@@ -181,7 +181,6 @@ public class OE5_Cortez {
                     arr2[i] = value.nextInt(N);
                 }
 
-
                 // perform Quicksort NUM times and take an average
                 for (int i = 0; i < NUM; i++) {
                     // generate random input
@@ -207,6 +206,7 @@ public class OE5_Cortez {
                     
                 }
 
+                System.out.println();
                 printResult2(arr2);
                 System.out.println();
                 System.out.println("The average time taken by the non-optimized Quicksort: " + (t1/NUM) + " nanoseconds");

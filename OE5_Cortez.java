@@ -205,8 +205,7 @@ public class OE5_Cortez {
                     copydup[i+(N-NUM)] = dup[i+(N-NUM)];
                     
                 }
-
-                System.out.println();
+                
                 printResult2(arr2);
                 System.out.println();
                 System.out.println("The average time taken by the non-optimized Quicksort: " + (t1/NUM) + " nanoseconds");

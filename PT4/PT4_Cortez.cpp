@@ -3,45 +3,38 @@
 #include <fstream>
 #include <string>
 #include <time.h>
+
 using namespace std;
-void PrintMessage(string message, bool printTop = true, bool printBottom = true)
-{
-    if (printTop)
-    {
+
+void PrintMessage(string message, bool printTop = true, bool printBottom = true) {
+    if (printTop) {
         cout << "+---------------------------------+" << endl;
         cout << "|";
-    }
-    else
-    {
+    } else {
         cout << "|";
     }
+    
     bool front = true;
-    for (int i = message.length(); i < 33; i++)
-    {
-        if (front)
-        {
+    for (int i = message.length(); i < 33; i++) {
+        if (front) {
             message = " " + message;
-        }
-        else
-        {
+        } else {
             message = message + " ";
         }
+
         front = !front;
     }
+    
     cout << message.c_str();
- 
-    if (printBottom)
-    {
+    if (printBottom) {
         cout << "|" << endl;
         cout << "+---------------------------------+" << endl;
-    }
-    else
-    {
+    } else {
         cout << "|" << endl;
     }
 }
-void DrawHangman(int guessCount = 0)
-{
+
+void DrawHangman(int guessCount = 0) {
     if (guessCount >= 1)
         PrintMessage("|", false, false);
     else
@@ -81,13 +74,11 @@ void DrawHangman(int guessCount = 0)
     else
         PrintMessage("", false, false);
 }
-void PrintLetters(string input, char from, char to)
-{
+
+void PrintLetters(string input, char from, char to) {
     string s;
-    for (char i = from; i <= to; i++)
-    {
-        if (input.find(i) == string::npos)
-        {
+    for (char i = from; i <= to; i++) {
+        if (input.find(i) == string::npos) {
             s += i;
             s += " ";
         }
@@ -96,25 +87,22 @@ void PrintLetters(string input, char from, char to)
     }
     PrintMessage(s, false, false);
 }
-void PrintAvailableLetters(string taken)
-{
+
+void PrintAvailableLetters(string taken) {
     PrintMessage("Available letters");
     PrintLetters(taken, 'A', 'M');
     PrintLetters(taken, 'N', 'Z');
 }
-bool PrintWordAndCheckWin(string word, string guessed)
-{
+
+bool PrintWordAndCheckWin(string word, string guessed) {
     bool won = true;
     string s;
-    for (int i = 0; i < word.length(); i++)
-    {
-        if (guessed.find(word[i]) == string::npos)
-        {
+    
+    for (int i = 0; i < word.length(); i++) {
+        if (guessed.find(word[i]) == string::npos) {
             won = false;
             s += "_ ";
-        }
-        else
-        {
+        } else {
             s += word[i];
             s += " ";
         }
@@ -122,14 +110,14 @@ bool PrintWordAndCheckWin(string word, string guessed)
     PrintMessage(s, false);
     return won;
 }
+
 string LoadRandomWord(string path)
 {
     int lineCount = 0;
     string word;
     vector<string> v;
     ifstream reader(path);
-    if (reader.is_open())
-    {
+    if (reader.is_open()) {
         while (std::getline(reader, word))
             v.push_back(word);
  
@@ -140,27 +128,19 @@ string LoadRandomWord(string path)
     }
     return word;
 }
-int TriesLeft(string word, string guessed)
-{
+
+int TriesLeft(string word, string guessed) {
     int error = 0;
-    for (int i = 0; i < guessed.length(); i++)
-    {
+    for (int i = 0; i < guessed.length(); i++) {
         if (word.find(guessed[i]) == string::npos)
             error++;
     }
     return error;
 }
-int main()
-{
-    srand(time(0));
-    string guesses;
-    string wordToGuess;
-    wordToGuess = LoadRandomWord("words.txt");
-    int tries = 0;
-    bool win = false;
-    do
-    {
-        system("cls"); //replace this line with system("clear"); if you run Linux or MacOS
+
+void Hangman(string guesses, string wordToGuess, int tries, bool win) {
+    do {
+        system("cls");
         PrintMessage("HANGMAN: DATA STRUCTURES");
         DrawHangman(tries);
         PrintAvailableLetters(guesses);
@@ -187,5 +167,16 @@ int main()
  
     system("pause"); //this line wont work on Linux or MacOS so remove it
     getchar();
+}
+
+int main() {
+    srand(time(0));
+    string guesses;
+    string wordToGuess;
+    wordToGuess = LoadRandomWord("words.txt");
+    int tries = 0;
+    bool win = false;
+    
+    Hangman(guesses, wordToGuess, tries, win);
     return 0;
 }
